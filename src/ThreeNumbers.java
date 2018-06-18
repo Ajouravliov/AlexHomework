@@ -26,27 +26,27 @@ public class ThreeNumbers {
                 System.out.println ("Number A is greater than B and C");
             }
             else
-                 if ((numberB > numberA) && (numberB > numberC)) {
-                        System.out.println ("Number B is greater than A and C");
-                 }
-                 else
-                       if ((numberC > numberA) && (numberC > numberB)) {
-                             System.out.println ("Number C is greater than A and B");
-                       }
+                if ((numberB > numberA) && (numberB > numberC)) {
+                    System.out.println ("Number B is greater than A and C");
+                }
+                else
+                    if ((numberC > numberA) && (numberC > numberB)) {
+                        System.out.println ("Number C is greater than A and B");
+                    }
                         else
-                            if ((numberA == numberB) && (numberB == numberC)) {
-                                System.out.println ("Numbers A, B, C are equal");
+                            if ((numberA == numberB) && (numberA > numberC)) {
+                                System.out.println ("Numbers A, B are equal and greater than C");
                             }
-                            else
-                                if ((numberA == numberB) && (numberA > numberC)) {
-                                    System.out.println ("Numbers A, B are equal and greater than C");
-                                }
                                 else
                                     if ((numberA == numberC) && (numberA > numberB)) {
                                         System.out.println ("Numbers A, C are equal and greater than B");
                                     }
                                     else
-                                         System.out.println ("Numbers B, C are equal and greater than A");
+                                        if ((numberB == numberC) && (numberB > numberA)) {
+                                            System.out.println("Numbers B, C are equal and greater than A");
+                                        }
+                                        else
+                                              System.out.println ("Numbers A, B, C are equal");
 
             scanner.close();
         }
