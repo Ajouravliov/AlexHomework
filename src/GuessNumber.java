@@ -24,24 +24,25 @@ public class GuessNumber {
             if (inputNumber == 0) {
 
                 stopFlag = false;
+            }
+            else
+                if (inputNumber == computerNumber) {
 
-            }  else
-                    if (inputNumber == computerNumber) {
+                    System.out.println ("BINGO !!!");
+                    attemptsAmount ++;
+                    stopFlag = false;
+                }
+                else
+                    if (inputNumber > computerNumber) {
 
-                        System.out.println ("BINGO !!!");
+                        System.out.println ("Inserted number is greater than computer-designed !");
                         attemptsAmount ++;
-                        stopFlag = false;
-                    } else
-                            if (inputNumber > computerNumber) {
+                    }
+                    else {
 
-                                System.out.println ("Inserted number is greater than computer-designed !");
-                                attemptsAmount ++;
-                            } else
-                                  if (inputNumber < computerNumber) {
-
-                                      System.out.println ("Inserted number is less than computer-designed !");
-                                      attemptsAmount ++;
-                            }
+                        System.out.println ("Inserted number is less than computer-designed !");
+                        attemptsAmount ++;
+                    }
         }
         while (stopFlag) ;
 
