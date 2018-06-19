@@ -1,10 +1,11 @@
+import java.util.Arrays;
 import java.util.Random;
 
 public class GreaterThanAverage {
 
     public static void main(String[] args) {
 
-        int length = 10, sum = 0, average = 0;
+        int length = 10, sum = 0, average;
 
         int[] numbers = new int[length];
         Random random = new Random();
@@ -15,7 +16,7 @@ public class GreaterThanAverage {
             sum = sum + numbers [i];
         }
 
-        System.out.println("Here is an array : " + numbers.toString());
+        System.out.println("Here is an array : " + Arrays.toString(numbers));
 
         average = sum /length;
         System.out.println ("Average of array is " + average);
