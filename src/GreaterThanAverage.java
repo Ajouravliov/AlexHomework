@@ -12,7 +12,7 @@ public class GreaterThanAverage {
 
         for (int i =0; i<length ;i++) {
 
-            numbers [i] = random.nextInt(100);
+            numbers [i] = random.nextInt (100);
             sum = sum + numbers [i];
         }
 
