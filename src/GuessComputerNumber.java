@@ -24,13 +24,11 @@ public class GuessComputerNumber {
             inputNumber = Integer.parseInt(scanner.nextLine());
 
             if (inputNumber ==1) {
-
                 endRange = computerNumber;
                 computerNumber = random.nextInt((endRange - startRange) + 1) + startRange;
             }
 
             if (inputNumber == 2) {
-
                 startRange = computerNumber;
                 computerNumber = random.nextInt((endRange - startRange) + 1) + startRange;
             }

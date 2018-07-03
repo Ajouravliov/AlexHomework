@@ -13,7 +13,7 @@ public class GuessNumber {
 
         boolean stopFlag = true;
 
-        System.out.println ("GUESS A COMPUTER-DESIGNED NUMBER FROM 1 TO 100 (TO ABORT THE GAME INSERT ZERO)");
+        System.out.println("GUESS A COMPUTER-DESIGNED NUMBER FROM 1 TO 100 (TO ABORT THE GAME INSERT ZERO)");
 
 
         do {
@@ -24,27 +24,22 @@ public class GuessNumber {
             if (inputNumber == 0) {
 
                 stopFlag = false;
+            } else if (inputNumber == computerNumber) {
+
+                System.out.println("BINGO !!!");
+                attemptsAmount++;
+                stopFlag = false;
+            } else if (inputNumber > computerNumber) {
+
+                System.out.println("Inserted number is greater than computer-designed !");
+                attemptsAmount++;
+            } else {
+
+                System.out.println("Inserted number is less than computer-designed !");
+                attemptsAmount++;
             }
-            else
-                if (inputNumber == computerNumber) {
-
-                    System.out.println ("BINGO !!!");
-                    attemptsAmount ++;
-                    stopFlag = false;
-                }
-                else
-                    if (inputNumber > computerNumber) {
-
-                        System.out.println ("Inserted number is greater than computer-designed !");
-                        attemptsAmount ++;
-                    }
-                    else {
-
-                        System.out.println ("Inserted number is less than computer-designed !");
-                        attemptsAmount ++;
-                    }
         }
-        while (stopFlag) ;
+        while (stopFlag);
 
         if (inputNumber == 0) {
 
