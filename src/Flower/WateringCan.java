@@ -1,14 +1,14 @@
 package Flower;
 
-public class WateringCan {
+class WateringCan {
 
-private boolean taked = false;
+    private boolean taken = false;
 
-    public boolean getTaked() {
-        return taked;
+    boolean getTaken() {
+        return taken;
     }
 
-    public void setTaked(boolean taked) {
-        this.taked = taked;
+    void setTaken(boolean taken) {
+        this.taken = taken;
     }
 }

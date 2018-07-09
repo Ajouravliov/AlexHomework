@@ -1,20 +1,16 @@
 package Flower;
 
-public class Human {
+class Human {
 
-    public void takeWateringCan (WateringCan wateringCan){
-
-        wateringCan.setTaked(true);
-
+    void takeWateringCan(WateringCan wateringCan) {
+        wateringCan.setTaken(true);
     }
 
-    public void wateringFlower (Flower flower, WateringCan wateringCan){
-        if (wateringCan.getTaked()) {
+    void wateringFlower(Flower flower, WateringCan wateringCan) {
+        if (wateringCan.getTaken()) {
             flower.setWatered(true);
-            System.out.println("The flower is watered !");
-
-        }else {
-            System.out.println("Take watering can before !");
+        }else{
+            System.out.println("Take watering can first");
         }
     }
 
