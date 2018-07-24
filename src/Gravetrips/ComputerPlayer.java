@@ -1,5 +1,9 @@
 package Gravetrips;
 
-public class ComputerPlayer extends Player {
+class ComputerPlayer extends Player {
 
+    @Override
+    int makeMove() {
+        return 0;
+    }
 }

@@ -1,5 +1,6 @@
 package Gravetrips;
 
-public abstract class Player {
+abstract class Player {
 
+    abstract int makeMove ();
 }

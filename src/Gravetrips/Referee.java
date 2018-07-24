@@ -1,4 +1,4 @@
 package Gravetrips;
 
-public class Referee {
+class Referee {
 }
