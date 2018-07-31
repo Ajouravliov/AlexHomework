@@ -10,4 +10,19 @@ class GameBoard {
             for (int i = 0; i < 7; i++)
                 this.board[i][j] = ' ';
     }
+
+    private int findLine(int column) {
+
+        int i = 0;
+        while ((this.board[i][column] == ' ') && (i < 7)) {
+
+        }
+        return 0;
+    }
+
+    public void putCheckerOnBoard(int column) {
+
+        this.board[findLine(column)][column] = ' ';
+    }
+
 }
