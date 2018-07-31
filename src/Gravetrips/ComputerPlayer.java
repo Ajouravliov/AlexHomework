@@ -1,9 +1,13 @@
 package Gravetrips;
 
+import java.util.Random;
+
 class ComputerPlayer extends Player {
 
     @Override
-    int makeMove() {
-        return 0;
+    void makeMove() {
+
+        Random random = new Random();
+        setColumn(random.nextInt(8));
     }
 }

@@ -1,9 +1,14 @@
 package Gravetrips;
 
+import java.util.Scanner;
+
 class HumanPlayer extends Player {
 
     @Override
-    int makeMove() {
-        return 0;
+    void makeMove() {
+
+        Scanner scanner = new Scanner(System.in);
+        setColumn(Integer.parseInt(scanner.nextLine()));
+        scanner.close();
     }
 }
