@@ -8,7 +8,6 @@ class GameBoard {
     private int lastMoveColumn;
 
     public GameBoard() {
-
         for (int j = 0; j < 7; j++)
             for (int i = 0; i < 7; i++)
                 this.board[i][j] = ' ';
@@ -33,7 +32,7 @@ class GameBoard {
     private void findRow(int column) {
         setLastMoveColumn(column);
         setLastMoveRow(6);
-        for(int i = 0;i<7;i++) {
+        for (int i = 0; i < 7; i++) {
             if (this.board[i][getLastMoveColumn()] != ' ') {
                 setLastMoveRow(--i);
                 break;
@@ -42,10 +41,7 @@ class GameBoard {
     }
 
     public void putCheckerOnBoard(int column) {
-
         findRow(column);
-
         this.board[getLastMoveRow()][getLastMoveColumn()] = ' ';
     }
-
 }
