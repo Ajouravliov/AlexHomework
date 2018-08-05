@@ -4,6 +4,9 @@ class GameBoard {
 
     private char[][] board = new char[7][7];
 
+    private int lastMoveRow;
+    private int lastMoveColumn;
+
     public GameBoard() {
 
         for (int j = 0; j < 7; j++)
@@ -11,18 +14,38 @@ class GameBoard {
                 this.board[i][j] = ' ';
     }
 
-    private int findLine(int column) {
+    private int getLastMoveRow() {
+        return lastMoveRow;
+    }
 
-        int i = 0;
-        while ((this.board[i][column] == ' ') && (i < 7)) {
+    private void setLastMoveRow(int lastMoveRow) {
+        this.lastMoveRow = lastMoveRow;
+    }
 
+    private int getLastMoveColumn() {
+        return lastMoveColumn;
+    }
+
+    private void setLastMoveColumn(int lastMoveColumn) {
+        this.lastMoveColumn = lastMoveColumn;
+    }
+
+    private void findRow(int column) {
+        setLastMoveColumn(column);
+        setLastMoveRow(6);
+        for(int i = 0;i<7;i++) {
+            if (this.board[i][getLastMoveColumn()] != ' ') {
+                setLastMoveRow(--i);
+                break;
+            }
         }
-        return 0;
     }
 
     public void putCheckerOnBoard(int column) {
 
-        this.board[findLine(column)][column] = ' ';
+        findRow(column);
+
+        this.board[getLastMoveRow()][getLastMoveColumn()] = ' ';
     }
 
 }
