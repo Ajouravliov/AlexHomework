@@ -33,12 +33,9 @@ class GameBoard {
 
     private void findRow(int column) {
         setLastMoveColumn(column);
-        for (int i = 0; i < 7; i++) {
-            if (this.board[i][getLastMoveColumn()] == 'x') {
-                setLastMoveRow(--i);
-                break;
-            }
-        }
+        int i;
+        for (i = 0; (i < 6)&&(this.board[i][getLastMoveColumn()] != 'x'); i++);
+        setLastMoveRow(--i);
     }
 
     void putCheckerOnBoard(int column) {
@@ -85,7 +82,7 @@ class GameBoard {
             startColumn = lastMoveColumn - lastMoveRow;
             startRow = 0;
         }
-        while ((startRow < 7) && (startColumn <= 0)) {
+        while ((startRow < 7) && (startColumn >= 0)) {
             rightSlantLine += this.board[startRow][startColumn];
             startRow++;
             startColumn--;
