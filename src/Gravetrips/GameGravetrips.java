@@ -7,12 +7,20 @@ public class GameGravetrips {
         GameBoard gameBoard = new GameBoard();
         ComputerPlayer firstPlayer = new ComputerPlayer();
         ComputerPlayer secondPlayer = new ComputerPlayer();
-        for(int i=1;i<50;i++){
+        Referee referee = new Referee();
+        int turnNumber = 0;
+        boolean stopGame = false;
 
-
-
-        }
-
-
+        do {
+            turnNumber++;
+            if (referee.giveMove(turnNumber) == 'x') {
+                firstPlayer.makeMove();
+                gameBoard.putCheckerOnBoard(firstPlayer.getColumn());
+            } else {
+                secondPlayer.makeMove();
+                gameBoard.putCheckerOnBoard(secondPlayer.getColumn());
+            }
+            stopGame = referee.checkWinner(gameBoard.showLines());
+        } while ((referee.isItLastMove(turnNumber)) && (!stopGame));
     }
 }

@@ -33,60 +33,53 @@ class GameBoard {
 
     private void findRow(int column) {
         setLastMoveColumn(column);
-        setLastMoveRow(6);
         for (int i = 0; i < 7; i++) {
-            if (this.board[i][getLastMoveColumn()] != ' ') {
+            if (this.board[i][getLastMoveColumn()] == 'x') {
                 setLastMoveRow(--i);
                 break;
             }
         }
     }
 
-    public void putCheckerOnBoard(int column) {
+    void putCheckerOnBoard(int column) {
         findRow(column);
-        this.board[getLastMoveRow()][getLastMoveColumn()] = ' ';
+        System.out.println("Row:" + getLastMoveRow() + "  Column: " +getLastMoveColumn());
+        this.board[getLastMoveRow()][getLastMoveColumn()] = 'x';
     }
 
-    public ArrayList showLines (){
+    ArrayList<String> showLines() {
+        ArrayList<String> lines = new ArrayList<>();
 
-       ArrayList<String> lines = new ArrayList<>();
-
-      lines.add(getHorizontalLine(getLastMoveRow()));
-      lines.add(getVerticalLine(getLastMoveColumn()));
-      lines.add(getRightSlantLine(getLastMoveRow(),getLastMoveColumn()));
-      lines.add(getLeftSlantLine(getLastMoveRow(), getLastMoveColumn()));
+        lines.add(getHorizontalLine(getLastMoveRow()));
+        lines.add(getVerticalLine(getLastMoveColumn()));
+        lines.add(getRightSlantLine(getLastMoveRow(), getLastMoveColumn()));
+        lines.add(getLeftSlantLine(getLastMoveRow(), getLastMoveColumn()));
 
         return lines;
     }
 
-    private String getHorizontalLine(int lastMoveRow){
-
+    private String getHorizontalLine(int lastMoveRow) {
         String horizontalLine = "";
-
-        for(int i=0;i<7;i++){
-
-            horizontalLine +=this.board[lastMoveRow][i];
-
+        for (int i = 0; i < 7; i++) {
+            horizontalLine += this.board[lastMoveRow][i];
         }
+        System.out.println(horizontalLine);
         return horizontalLine;
     }
 
-    private String getVerticalLine(int lastMoveColumn){
-
+    private String getVerticalLine(int lastMoveColumn) {
         String verticalLine = "";
-        for(int i=0;i<7;i++) {
+        for (int i = 0; i < 7; i++) {
             verticalLine += this.board[i][lastMoveColumn];
         }
+        System.out.println(verticalLine);
         return verticalLine;
     }
 
-
-    private String getRightSlantLine(int lastMoveRow, int lastMoveColumn){
-
+    private String getRightSlantLine(int lastMoveRow, int lastMoveColumn) {
         String rightSlantLine = "";
         int startRow, startColumn;
-
-        if (lastMoveRow>lastMoveColumn){
+        if (lastMoveRow > lastMoveColumn) {
             startRow = lastMoveRow - lastMoveColumn;
             startColumn = 0;
         } else {
@@ -94,33 +87,31 @@ class GameBoard {
             startColumn = lastMoveColumn - lastMoveRow;
             startRow = 0;
         }
-
-        while((startRow<7)&&(startColumn<=0)) {
+        while ((startRow < 7) && (startColumn <= 0)) {
             rightSlantLine += this.board[startRow][startColumn];
             startRow++;
             startColumn--;
         }
+        System.out.println(rightSlantLine);
         return rightSlantLine;
     }
 
-    private String getLeftSlantLine(int lastMoveRow, int lastMoveColumn){
-
+    private String getLeftSlantLine(int lastMoveRow, int lastMoveColumn) {
         String leftSlantLine = "";
         int startRow, startColumn;
-        if (lastMoveRow>lastMoveColumn){
+        if (lastMoveRow > lastMoveColumn) {
             startRow = lastMoveRow - lastMoveColumn;
             startColumn = 0;
         } else {
-
             startColumn = lastMoveColumn - lastMoveRow;
             startRow = 0;
         }
-
-        while((startRow<7)&&(startColumn<7)) {
-           leftSlantLine += this.board[startRow][startColumn];
+        while ((startRow < 7) && (startColumn < 7)) {
+            leftSlantLine += this.board[startRow][startColumn];
             startRow++;
             startColumn++;
         }
+        System.out.println(leftSlantLine);
         return leftSlantLine;
     }
 }
