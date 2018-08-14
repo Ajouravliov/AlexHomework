@@ -8,6 +8,7 @@ class ComputerPlayer extends Player {
     void makeMove() {
 
         Random random = new Random();
-        setColumn(random.nextInt(8));
+        setColumn(random.nextInt(7));
+        System.out.println("move :" + getColumn());
     }
 }

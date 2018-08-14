@@ -21,6 +21,20 @@ public class GameGravetrips {
                 gameBoard.putCheckerOnBoard(secondPlayer.getColumn());
             }
             stopGame = referee.checkWinner(gameBoard.showLines());
-        } while ((referee.isItLastMove(turnNumber)) && (!stopGame));
+
+
+
+            if(stopGame){
+
+                System.out.println("Winner!");
+            }
+
+            System.out.println("it was " + turnNumber + "turns");
+
+
+        } while ((!referee.isItLastMove(turnNumber)) && (!stopGame));
+
+
+
     }
 }

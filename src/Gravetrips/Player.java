@@ -4,7 +4,7 @@ abstract class Player {
 
     private int column;
 
-    public int getColumn() {
+    int getColumn() {
         return column;
     }
 

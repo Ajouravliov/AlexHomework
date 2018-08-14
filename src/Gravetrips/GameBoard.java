@@ -63,7 +63,6 @@ class GameBoard {
         for (int i = 0; i < 7; i++) {
             horizontalLine += this.board[lastMoveRow][i];
         }
-        System.out.println(horizontalLine);
         return horizontalLine;
     }
 
@@ -72,7 +71,6 @@ class GameBoard {
         for (int i = 0; i < 7; i++) {
             verticalLine += this.board[i][lastMoveColumn];
         }
-        System.out.println(verticalLine);
         return verticalLine;
     }
 
@@ -92,7 +90,6 @@ class GameBoard {
             startRow++;
             startColumn--;
         }
-        System.out.println(rightSlantLine);
         return rightSlantLine;
     }
 
@@ -111,7 +108,6 @@ class GameBoard {
             startRow++;
             startColumn++;
         }
-        System.out.println(leftSlantLine);
         return leftSlantLine;
     }
 }
