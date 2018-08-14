@@ -9,7 +9,7 @@ public class GameGravetrips {
         ComputerPlayer secondPlayer = new ComputerPlayer();
         Referee referee = new Referee();
         int turnNumber = 0;
-        boolean stopGame = false;
+        boolean stopGame;
 
         do {
             turnNumber++;
@@ -23,8 +23,7 @@ public class GameGravetrips {
             stopGame = referee.checkWinner(gameBoard.showLines());
 
 
-
-            if(stopGame){
+            if (stopGame) {
 
                 System.out.println("Winner!");
             }
@@ -33,7 +32,6 @@ public class GameGravetrips {
 
 
         } while ((!referee.isItLastMove(turnNumber)) && (!stopGame));
-
 
 
     }

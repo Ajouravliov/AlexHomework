@@ -34,13 +34,13 @@ class GameBoard {
     private void findRow(int column) {
         setLastMoveColumn(column);
         int i;
-        for (i = 0; (i < 6)&&(this.board[i][getLastMoveColumn()] != 'x'); i++);
+        for (i = 0; (i < 7) && (this.board[i][getLastMoveColumn()] != 'x'); i++) ;
         setLastMoveRow(--i);
     }
 
     void putCheckerOnBoard(int column) {
         findRow(column);
-        System.out.println("Row:" + getLastMoveRow() + "  Column: " +getLastMoveColumn());
+        System.out.println("Row:" + getLastMoveRow() + "  Column: " + getLastMoveColumn());
         this.board[getLastMoveRow()][getLastMoveColumn()] = 'x';
     }
 
