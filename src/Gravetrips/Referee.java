@@ -73,8 +73,4 @@ class Referee {
     int giveMove(int turnNumber) {
        return turnNumber % 2;
     }
-
-    boolean isItLastMove(int turnNumber) {
-        return turnNumber == 49;
-    }
 }
