@@ -1,38 +1,24 @@
 package Gravetrips;
 
+import java.util.ArrayList;
+
+
 public class GameGravetrips {
 
     public static void main(String[] args) {
 
         GameBoard gameBoard = new GameBoard();
-        ComputerPlayer firstPlayer = new ComputerPlayer();
-        ComputerPlayer secondPlayer = new ComputerPlayer();
         Referee referee = new Referee();
-        int turnNumber = 0;
-        boolean stopGame;
+        ArrayList<Player> players = new ArrayList<>();
+        boolean stopGame = false;
 
-        do {
-            turnNumber++;
-            if (referee.giveMove(turnNumber) == 'x') {
-                firstPlayer.makeMove();
-                gameBoard.putCheckerOnBoard(firstPlayer.getColumn());
-            } else {
-                secondPlayer.makeMove();
-                gameBoard.putCheckerOnBoard(secondPlayer.getColumn());
-            }
+        players = referee.setPlayers(players);
+
+        for (int i = 0; (i < 49) && (!stopGame); i++) {
+
+            players.get(referee.giveMove(i)).makeMove();
+            gameBoard.putCheckerOnBoard(players.get(referee.giveMove(i)).getColumn());
             stopGame = referee.checkWinner(gameBoard.showLines());
-
-
-            if (stopGame) {
-
-                System.out.println("Winner!");
-            }
-
-            System.out.println("it was " + turnNumber + "turns");
-
-
-        } while ((!referee.isItLastMove(turnNumber)) && (!stopGame));
-
-
+        }
     }
 }
