@@ -6,7 +6,10 @@ import java.util.Scanner;
 enum Sign {
 
     X("X"),
-    O("O");
+    O("O"),
+    EMPTY("."),
+    XXXX("XXXX"),
+    OOOO("OOOO");
 
     private String value;
 
@@ -32,7 +35,7 @@ class Referee {
         this.win = win;
     }
 
-    ArrayList<Player> setPlayers( ArrayList<Player> players) {
+    ArrayList<Player> setPlayers(ArrayList<Player> players) {
 
         ArrayList<Sign> signs = new ArrayList<>();
         signs.add(Sign.X);
@@ -62,15 +65,19 @@ class Referee {
     boolean checkWinner(ArrayList<String> lines) {
         setWin(false);
         for (String row : lines) {
-
-            if ((row.contains("xxxx")) || (row.contains("oooo"))) {
+            if (row.contains(Sign.XXXX.toString())) {
                 setWin(true);
+                System.out.println("Player " + Sign.X.toString() + " wins!");
+
+            } else if (row.contains(Sign.OOOO.toString())) {
+                setWin(true);
+                System.out.println("Player " + Sign.O.toString() + " wins!");
             }
         }
         return getWin();
     }
 
     int giveMove(int turnNumber) {
-       return turnNumber % 2;
+        return turnNumber % 2;
     }
 }

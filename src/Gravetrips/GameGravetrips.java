@@ -15,10 +15,14 @@ public class GameGravetrips {
         players = referee.setPlayers(players);
 
         for (int i = 0; (i < 49) && (!stopGame); i++) {
-
-            players.get(referee.giveMove(i)).makeMove();
-            gameBoard.putCheckerOnBoard(players.get(referee.giveMove(i)).getColumn());
+            int whoseTurn = referee.giveMove(i);
+            players.get(whoseTurn).makeMove();
+            gameBoard.putCheckerOnBoard(players.get(whoseTurn).getColumn(), players.get(whoseTurn).getSign());
             stopGame = referee.checkWinner(gameBoard.showLines());
+        }
+
+        if (!stopGame) {
+            System.out.print("/n Nobody wins");
         }
     }
 }

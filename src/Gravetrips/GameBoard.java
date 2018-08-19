@@ -4,15 +4,17 @@ import java.util.ArrayList;
 
 class GameBoard {
 
-    private char[][] board = new char[7][7];
+    private String[][] board = new String[7][7];
 
     private int lastMoveRow;
     private int lastMoveColumn;
 
     GameBoard() {
-        for (int j = 0; j < 7; j++)
-            for (int i = 0; i < 7; i++)
-                this.board[i][j] = '.';
+        for (int j = 0; j < 7; j++) {
+            for (int i = 0; i < 7; i++) {
+                this.board[j][i] = Sign.EMPTY.toString();
+            }
+        }
     }
 
     private int getLastMoveRow() {
@@ -33,15 +35,29 @@ class GameBoard {
 
     private void findRow(int column) {
         setLastMoveColumn(column);
-        int i;
-        for (i = 0; (i < 7) && (this.board[i][getLastMoveColumn()] != 'x'); i++) ;
-        setLastMoveRow(--i);
+        for (int i = 6; i >= 0; i--) {
+            if (this.board[i][getLastMoveColumn()].equalsIgnoreCase(Sign.EMPTY.toString())) {
+                setLastMoveRow(i);
+                i = 0;
+            }
+        }
     }
 
-    void putCheckerOnBoard(int column) {
+    void putCheckerOnBoard(int column, String sign) {
         findRow(column);
         System.out.println("Row:" + getLastMoveRow() + "  Column: " + getLastMoveColumn());
-        this.board[getLastMoveRow()][getLastMoveColumn()] = 'x';
+        this.board[getLastMoveRow()][getLastMoveColumn()] = sign;
+        printBoard();
+    }
+
+    private void printBoard() {
+
+        for (int j = 0; j < 7; j++) {
+            for (int i = 0; i < 7; i++) {
+                System.out.print(this.board[j][i]);
+            }
+            System.out.print("/n");
+        }
     }
 
     ArrayList<String> showLines() {

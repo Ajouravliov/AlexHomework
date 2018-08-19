@@ -5,7 +5,7 @@ abstract class Player {
     private int column;
     private String sign;
 
-    public String getSign() {
+    String getSign() {
         return sign;
     }
 
