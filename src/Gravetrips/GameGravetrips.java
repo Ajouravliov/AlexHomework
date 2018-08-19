@@ -22,7 +22,7 @@ public class GameGravetrips {
         }
 
         if (!stopGame) {
-            System.out.print("/n Nobody wins");
+            System.out.print("\n Nobody wins");
         }
     }
 }

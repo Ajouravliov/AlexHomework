@@ -40,11 +40,14 @@ class Referee {
         ArrayList<Sign> signs = new ArrayList<>();
         signs.add(Sign.X);
         signs.add(Sign.O);
+
+        Scanner scanner = new Scanner(System.in);
+        int select;
+
         for (int i = 0; i < 2; i++) {
-            System.out.println("Select player number " + i + " :");
+            System.out.println("Select player number " + (i + 1) + " :");
             System.out.println("Computer - press 1, Human - press 2");
-            Scanner scanner = new Scanner(System.in);
-            int select = Integer.parseInt(scanner.nextLine());
+            select = Integer.parseInt(scanner.nextLine());
             if (select == 1) {
                 ComputerPlayer computer = new ComputerPlayer();
                 computer.setSign(signs.get(i));
@@ -54,11 +57,11 @@ class Referee {
                 human.setSign(signs.get(i));
                 players.add(human);
             } else {
-                System.out.println("Wrong choise ! Once again, please !");
+                System.out.println("\n Wrong choise ! Once again, please ! \n");
                 i--;
             }
-            scanner.close();
         }
+        scanner.close();
         return players;
     }
 
@@ -67,11 +70,11 @@ class Referee {
         for (String row : lines) {
             if (row.contains(Sign.XXXX.toString())) {
                 setWin(true);
-                System.out.println("Player " + Sign.X.toString() + " wins!");
+                System.out.println("\n Player " + Sign.X.toString() + " wins! \n");
 
             } else if (row.contains(Sign.OOOO.toString())) {
                 setWin(true);
-                System.out.println("Player " + Sign.O.toString() + " wins!");
+                System.out.println("\n Player " + Sign.O.toString() + " wins! \n");
             }
         }
         return getWin();

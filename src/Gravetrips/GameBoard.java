@@ -45,7 +45,7 @@ class GameBoard {
 
     void putCheckerOnBoard(int column, String sign) {
         findRow(column);
-        System.out.println("Row:" + getLastMoveRow() + "  Column: " + getLastMoveColumn());
+        System.out.println("Row:" + getLastMoveRow() + "  Column: " + getLastMoveColumn() + "\n");
         this.board[getLastMoveRow()][getLastMoveColumn()] = sign;
         printBoard();
     }
@@ -56,8 +56,9 @@ class GameBoard {
             for (int i = 0; i < 7; i++) {
                 System.out.print(this.board[j][i]);
             }
-            System.out.print("/n");
+            System.out.print("\n");
         }
+        System.out.print("\n");
     }
 
     ArrayList<String> showLines() {
