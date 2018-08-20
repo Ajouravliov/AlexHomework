@@ -1,5 +1,7 @@
 package Gravetrips;
 
+import java.util.ArrayList;
+
 abstract class Player {
 
     private int column;
@@ -22,5 +24,5 @@ abstract class Player {
         this.column = column;
     }
 
-    abstract void makeMove();
+    abstract void makeMove(ArrayList<Integer> freeColumns);
 }

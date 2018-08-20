@@ -17,13 +17,13 @@ public class GameGravetrips {
 
         for (int i = 0; (i < 49) && (!stopGame); i++) {
             int whoseTurn = referee.giveMove(i);
-            players.get(whoseTurn).makeMove();
+            players.get(whoseTurn).makeMove(gameBoard.freeColumns);
             gameBoard.putCheckerOnBoard(players.get(whoseTurn).getColumn(), players.get(whoseTurn).getSign());
             stopGame = referee.checkWinner(gameBoard.showLines());
         }
 
         if (!stopGame) {
-            System.out.print("\n Nobody wins");
+            System.out.print("\n Nobody wins :(");
         }
     }
 }

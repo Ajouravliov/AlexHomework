@@ -6,6 +6,8 @@ class GameBoard {
 
     private String[][] board = new String[7][7];
 
+    public ArrayList<Integer> freeColumns = new ArrayList<>();
+
     private int lastMoveRow;
     private int lastMoveColumn;
 
@@ -14,6 +16,7 @@ class GameBoard {
             for (int i = 0; i < 7; i++) {
                 this.board[j][i] = Sign.EMPTY.toString();
             }
+            freeColumns.add(j);
         }
     }
 
@@ -43,11 +46,19 @@ class GameBoard {
         }
     }
 
+    private void removeFilledColumn() {
+
+        if (getLastMoveRow() == 0) {
+            freeColumns.remove(getLastMoveColumn());
+        }
+    }
+
     void putCheckerOnBoard(int column, String sign) {
         findRow(column);
-//        System.out.println("Row:" + getLastMoveRow() + "  Column: " + getLastMoveColumn() + "\n");
+        System.out.println("Checker placed at : row " + (getLastMoveRow() + 1) + " and column " + (getLastMoveColumn() + 1) + "\n");
         this.board[getLastMoveRow()][getLastMoveColumn()] = sign;
         printBoard();
+        removeFilledColumn();
     }
 
     private void printBoard() {

@@ -45,7 +45,7 @@ class Referee {
         int select;
 
         for (int i = 0; i < 2; i++) {
-            System.out.println("Select player number " + (i + 1) + " :");
+            System.out.println("Select player number " + (i + 1) + " signed as " + signs.get(i) + " :");
             System.out.println("Computer - press 1, Human - press 2");
             select = Integer.parseInt(scanner.nextLine());
             if (select == 1) {
@@ -57,11 +57,10 @@ class Referee {
                 human.setSign(signs.get(i));
                 players.add(human);
             } else {
-                System.out.println("\n Wrong choise ! Once again, please ! \n");
+                System.out.println("\n Wrong choice ! Once again, please ! \n");
                 i--;
             }
         }
-//        scanner.close();
         return players;
     }
 
@@ -70,11 +69,11 @@ class Referee {
         for (String row : lines) {
             if (row.contains(Sign.XXXX.toString())) {
                 setWin(true);
-                System.out.println("\n Player " + Sign.X.toString() + " wins! \n");
+                System.out.println("\n Player signed as " + Sign.X.toString() + " wins! \n");
 
             } else if (row.contains(Sign.OOOO.toString())) {
                 setWin(true);
-                System.out.println("\n Player " + Sign.O.toString() + " wins! \n");
+                System.out.println("\n Player signed as " + Sign.O.toString() + " wins! \n");
             }
         }
         return getWin();
