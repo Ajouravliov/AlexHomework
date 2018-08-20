@@ -6,7 +6,7 @@ class GameBoard {
 
     private String[][] board = new String[7][7];
 
-    public ArrayList<Integer> freeColumns = new ArrayList<>();
+    ArrayList<Integer> freeColumns = new ArrayList<>();
 
     private int lastMoveRow;
     private int lastMoveColumn;
