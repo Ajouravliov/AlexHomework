@@ -61,7 +61,7 @@ class Referee {
                 i--;
             }
         }
-        scanner.close();
+//        scanner.close();
         return players;
     }
 

@@ -7,6 +7,7 @@ public class GameGravetrips {
 
     public static void main(String[] args) {
 
+
         GameBoard gameBoard = new GameBoard();
         Referee referee = new Referee();
         ArrayList<Player> players = new ArrayList<>();
